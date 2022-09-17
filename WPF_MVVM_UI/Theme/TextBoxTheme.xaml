@@ -17,8 +17,30 @@
                                          Background="Transparent"
                                          VerticalContentAlignment="Center"
                                          Padding="5"
-                                         Foreground="#CFCFCF"/>
-                            
+                                         Foreground="#CFCFCF"
+                                         x:Name="SearchBox"/>
+
+                            <TextBlock IsHitTestVisible="False"
+                                       Text="Search"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="left"
+                                       Margin="10,0,0,0"
+                                       FontSize="11"
+                                       Foreground="DarkGray"
+                                       Grid.Column="1">
+
+                                <TextBlock.Style>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </Style>
+                                </TextBlock.Style>
+                                
+                            </TextBlock>
                         </Grid>
                     </Border>
                 </ControlTemplate>
